@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Take home assignment</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .3s ease;
+}
+
+.container:hover .overlay {
+  opacity: 1;
+}
+
+.icon {
+  color: white;
+  font-size: 50px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 5%;
+  width: 100%;
+  background-color: #8b4513;
+  color: white;
+  font-size: 20px;
+  text-align: left;
+}
+
+
+.dropbtn {
+  background-color: #8b4513;
+  color: black;
+  padding: 16px;
+  font-size: 20px;
+  border: none;
+}
+
+
+.dropup {
+  position: relative;
+  display: inline-block;
+}
+
+.dropup-content {
+  display: none;
+  position: absolute;
+  bottom: 50px;
+  background-color: #8b4513;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropup-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+
+.dropup-content a:hover {background-color: #ddd}
+
+
+.dropup:hover .dropup-content {
+  display: block;
+}
+
+.dropup:hover .dropbtn {
+  background-color: #8b4513;
+}
+
+body {
+  background-color:#c19a6b ;
+}
+
+.form-control{
+background-color: #c19a6b;
+}
+
+.nav-link{
+  color: black;
+  font: bold;
+  font-size: 20px;
+}
+
+  </style>
+</head>
+ 
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light">
+  <a class="navbar-brand">MovieMovie</a>
+  
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link " href="#">Facebook</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="#">Youtube</a>
+      </li>
+	  <li class="nav-item">
+        <a class="nav-link " href="#">Event</a>
+      </li>
+	  <li class="nav-item">
+        <a class="nav-link " href="#">TV</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+	   <ul class="navbar-nav mr-auto">
+	   <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
+        Cinema Location
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Chai Wan</a>
+          <a class="dropdown-item" href="#">Taikoo</a>
+        </div>
+		
+      </li>
+	  <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
+        Movie
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Interstaller</a>
+          <a class="dropdown-item" href="#">Batman versus superman</a>
+		  <a class="dropdown-item" href="#">Spider-Man: No way home</a>
+        </div>
+	
+      </li>
+	  	  <li class="nav-item dropdown">
+		  
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
+        Select a date
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">-please select a date & show</a>
+          <a class="dropdown-item" href="#">4/6(fri) 10:15 am hourse 5</a>
+		   <a class="dropdown-item" href="#">4/6(fri) 12:10 am hourse 1</a>
+		    <a class="dropdown-item" href="#">4/6(fri) 15:45 am hourse 2</a>
+			 <a class="dropdown-item" href="#">4/6(fri) 18:00 am hourse 4</a>
+        </div>
+		</ul>
+      </li>
+	
+			<input type="date" class="form-control" id="Date">
+
+    <button type="button" class="btn btn-primary">Buy</button>
+    </form>
+  </div>
+</nav>
+	<hr>
+<div class="container-fluid">
+<form class="form-inline my-2 my-lg-0">
+	<div class="row">
+	   <ul class="navbar-nav mr-auto">
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
+         Films Filter
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Upcoming</a>
+		   <a class="dropdown-item" href="#">Special</a>
+		    <a class="dropdown-item" href="#">In Theater</a>
+        </div>
+	
+		</ul>
+      </li>
+	  	 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button type="button" class="btn btn-primary">Search</button>
+		</div>
+		</form>
+		</div>
+	
+	
+		
+		
+	<div class="row">
+	
+			<div class="col-lg-3 col-md-6">
+         <div class="container">
+          <img src="interstaller.jpg" alt="Avatar" class="image">
+          <div class="overlay">
+          <a href="assignmentDetail.html" class="icon">
+          <img src="buy.png" ></img></a>
+			</figure>
+		</div>	
+		</div>
+	</div>
+		
+			<div class="col-lg-3 col-md-6">
+         <div class="container">
+          <img src="interstaller.jpg" alt="Avatar" class="image">
+          <div class="overlay">
+          <a href="assignmentDetail.html" class="icon">
+          <img src="buy.png" ></img></a>
+			</figure>
+		</div>	
+		</div>
+	</div>
+		
+			<div class="col-lg-3 col-md-6">
+         <div class="container">
+          <img src="interstaller.jpg" alt="Avatar" class="image">
+          <div class="overlay">
+          <a href="assignmentDetail.html" class="icon">
+          <img src="buy.png" ></img></a>
+			</figure>
+		</div>	
+		</div>
+	</div>
+		
+		<div class="col-lg-3 col-md-6">
+         <div class="container">
+          <img src="interstaller.jpg" alt="Avatar" class="image">
+          <div class="overlay">
+          <a href="assignmentDetail.html" class="icon">
+          <img src="buy.png" ></img></a>
+			</figure>
+		</div>	
+		</div>
+	</div>
+</div>
+
+</br>
+	<div class="row">
+	
+			<div class="col-lg-3 col-md-6">
+         <div class="container">
+          <img src="interstaller.jpg" alt="Avatar" class="image">
+          <div class="overlay">
+          <a href="assignmentDetail.html" class="icon">
+          <img src="buy.png" ></img></a>
+			</figure>
+		</div>	
+		</div>
+	</div>
+		
+			<div class="col-lg-3 col-md-6">
+         <div class="container">
+          <img src="interstaller.jpg" alt="Avatar" class="image">
+          <div class="overlay">
+          <a href="assignmentDetail.html" class="icon">
+          <img src="buy.png" ></img></a>
+			</figure>
+		</div>	
+		</div>
+	</div>
+		
+			<div class="col-lg-3 col-md-6">
+         <div class="container">
+          <img src="interstaller.jpg" alt="Avatar" class="image">
+          <div class="overlay">
+          <a href="assignmentDetail.html" class="icon">
+          <img src="buy.png" ></img></a>
+			</figure>
+		</div>	
+		</div>
+	</div>
+		
+		<div class="col-lg-3 col-md-6">
+         <div class="container">
+          <img src="interstaller.jpg" alt="Avatar" class="image">
+          <div class="overlay">
+          <a href="assignmentDetail.html" class="icon">
+          <img src="buy.png" ></img></a>
+			</figure>
+		</div>	
+		</div>
+	</div>
+
+</div>
+
+
+<div class="footer">
+  <nav>
+  <div class="dropup">
+  <button class="dropbtn">Movie</button>
+  <div class="dropup-content">
+    <a href="#">Now Showing</a>
+    <a href="#">Coming Soon</a>
+  </div>
+  </div>
+  
+   <div class="dropup">
+  <button class="dropbtn">Location</button>
+  <div class="dropup-content">
+    <a href="#">Chai Wan</a>
+    <a href="#">Taikoo</a>
+  </div>
+</div>
+	   
+     <div class="dropup">
+  <button class="dropbtn">News & Offer</button>
+  <div class="dropup-content">
+    <a href="#">Last News</a>
+    <a href="#">Promotion</a>
+  </div>
+  </div>
+  
+    <div class="dropup">
+  <button class="dropbtn">Account</button>
+  <div class="dropup-content">
+    <a href="#">Login</a>
+    <a href="#">Sign Up</a>
+  </div>
+</div>
+
+    <div class="dropup">
+  <button class="dropbtn">About Us</button>
+  <div class="dropup-content">
+    <a href="#">About Us</a>
+    <a href="#">Team & Conditon</a>
+  </div>
+</div>
+	   
+	   
+  </nav>
+</div>
+</tr>
+	<script>
+	</script>
+</body>
+</html>

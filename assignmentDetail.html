@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Take home assignment</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  left:-15%;
+  bottom: -10%;
+}
+
+
+.image {
+  width: 100%;
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .3s ease;
+}
+
+.container:hover .overlay {
+  opacity: 1;
+}
+
+.icon {
+  color: white;
+  font-size: 50px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 5%;
+  width: 100%;
+  background-color: #8b4513;
+  color: white;
+  font-size: 20px;
+  text-align: left;
+}
+
+
+.dropbtn {
+  background-color: #8b4513;
+  color: black;
+  padding: 16px;
+  font-size: 20px;
+  border: none;
+}
+
+
+.dropup {
+  position: relative;
+  display: inline-block;
+}
+
+.dropup-content {
+  display: none;
+  position: absolute;
+  bottom: 50px;
+  background-color: #8b4513;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropup-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+
+.dropup-content a:hover {background-color: #ddd}
+
+
+.dropup:hover .dropup-content {
+  display: block;
+}
+
+.dropup:hover .dropbtn {
+  background-color: #8b4513;
+}
+
+body {
+  background-color:#c19a6b ;
+}
+
+.column {
+  float: left;
+  width: 50%;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+p {
+  color: black;
+  font-size: 20px;
+}
+
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+}
+
+
+.tab button:hover {
+  background-color: #ddd;
+}
+
+
+.tab button.active {
+  background-color: #ccc;
+}
+
+
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.info ul li:before{
+  content: "\2022";  
+  color: red; 
+  font-weight: bold; 
+  display: inline-block;
+  width: 1em; 
+  margin-left: -1em; 
+}
+
+.info2 ul li:before{
+  content: "\2022";  
+  color: green; 
+  font-weight: bold; 
+  display: inline-block;
+  width: 1em; 
+  margin-left: -1em; 
+}
+
+.tab{
+background-color: #c19a6b;
+}
+
+.form-control{
+background-color: #c19a6b;
+}
+.nav-link{
+  color: black;
+  font: bold;
+  font-size: 20px;
+}
+
+  </style>
+</head>
+ 
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light">
+  <a class="navbar-brand">MovieMovie</a>
+  
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link " href="#">Facebook</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="#">Youtube</a>
+      </li>
+	  <li class="nav-item">
+        <a class="nav-link " href="#">Event</a>
+      </li>
+	  <li class="nav-item">
+        <a class="nav-link " href="#">TV</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+	   <ul class="navbar-nav mr-auto">
+	   <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
+        Cinema Location
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Chai Wan</a>
+          <a class="dropdown-item" href="#">Taikoo</a>
+        </div>
+		
+      </li>
+	  <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
+        Movie
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Interstaller</a>
+          <a class="dropdown-item" href="#">Batman versus superman</a>
+		  <a class="dropdown-item" href="#">Spider-Man: No way home</a>
+        </div>
+	
+      </li>
+	  	  <li class="nav-item dropdown">
+		  
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
+        Select a date
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">-please select a date & show</a>
+          <a class="dropdown-item" href="#">4/6(fri) 10:15 am hourse 5</a>
+		   <a class="dropdown-item" href="#">4/6(fri) 12:10 am hourse 1</a>
+		    <a class="dropdown-item" href="#">4/6(fri) 15:45 am hourse 2</a>
+			 <a class="dropdown-item" href="#">4/6(fri) 18:00 am hourse 4</a>
+        </div>
+		</ul>
+      </li>
+ 
+			<input type="date" class="form-control" id="Date">
+      <button type="button" class="btn btn-primary">Buy</button>
+    </form>
+  </div>
+</nav>
+<hr>
+
+<div class="row">
+  <div class="column">
+      <div class="container">
+  <img src="interstaller.jpg" alt="Avatar" class="image">
+  <p><a> Duration:       125mins</a><hr>
+  <p><a> Language:       English</a><hr>
+  <p><a> Subtitle:       Chinese&English </a><hr>
+  <p><a> Release Date:       4/6/2021</a><hr>
+  </div>
+  </div>
+  
+  
+  
+  <div class="column">
+  <div class="row">
+  <div class="column">
+  <p> Interstaller    IIB</p>
+  <p> Description</p>
+  <a>Interstellar is a 2014 British-American epic science fiction film co-written, 
+  directed and produced by Christopher Nolan. It stars Matthew McConaughey, Anne 
+  Hathaway, Jessica Chastain, Bill Irwin, Ellen Burstyn, John Lithgow, Michael Caine,
+  and Matt Damon. Set in a dystopian future where humanity is struggling to survive, 
+  the film follows a group of astronauts who travel through a wormhole near Saturn in 
+  search of a new home for humanity.</a><hr>
+   </div>
+   </div>
+   <p> Buy ticket:</p>
+   <div class="row">
+  
+    <div class="tab">
+  <button class="tablinks" onclick="openDate(event, 'four')">4/6</button>
+  <button class="tablinks" onclick="openDate(event, 'five')">5/6</button>
+    </div>
+
+
+ <div class="column">
+    <div id="four" class="tabcontent">
+  <h3>4/6</h3>
+      <form class="form-inline my-2 my-lg-0">
+	   <ul class="navbar-nav mr-auto">
+	   <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
+        Cinema Location
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Chai Wan</a>
+          <a class="dropdown-item" href="#">Taikoo</a>
+        </div>
+      </li>
+  <p>English</p>
+  <div class="info">
+  <a href=""> <ul>
+  <div class ="row">
+  <li>5: 50    PM     Hourse 1</li>
+  <div class="info2">
+  <a href=""> <ul>
+  <div class ="row">
+  <li>18: 50    PM     Hourse 2</li> 
+</ul>
+</a>
+    </div>
+ </div>
+</ul>
+</a>
+    </div>
+ </div>
+ </form>
+ 
+    <div id="five" class="tabcontent">
+  <h3>5/6</h3>
+        <form class="form-inline my-2 my-lg-0">
+	   <ul class="navbar-nav mr-auto">
+	   <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
+        Cinema Location
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Chai Wan</a>
+          <a class="dropdown-item" href="#">Taikoo</a>
+        </div>
+      </li>
+  <p>English</p>
+  <div class="info2">
+  <a href=""> <ul>
+  <div class ="row">
+  <li>11: 50    AM     Hourse 3</li> 
+</ul>
+</a>
+    </div>
+ </div>
+ </form>
+   </div>
+   </div>
+   </div>
+  </div>
+</div>
+
+
+<div class="footer">
+  <nav>
+  <div class="dropup">
+  <button class="dropbtn">Movie</button>
+  <div class="dropup-content">
+    <a href="#">Now Showing</a>
+    <a href="#">Coming Soon</a>
+  </div>
+  </div>
+  
+   <div class="dropup">
+  <button class="dropbtn">Location</button>
+  <div class="dropup-content">
+    <a href="#">Chai Wan</a>
+    <a href="#">Taikoo</a>
+  </div>
+</div>
+	   
+     <div class="dropup">
+  <button class="dropbtn">News & Offer</button>
+  <div class="dropup-content">
+    <a href="#">Last News</a>
+    <a href="#">Promotion</a>
+  </div>
+  </div>
+  
+    <div class="dropup">
+  <button class="dropbtn">Account</button>
+  <div class="dropup-content">
+    <a href="#">Login</a>
+    <a href="#">Sign Up</a>
+  </div>
+</div>
+
+    <div class="dropup">
+  <button class="dropbtn">About Us</button>
+  <div class="dropup-content">
+    <a href="#">About Us</a>
+    <a href="#">Team & Conditon</a>
+  </div>
+</div>
+	   
+	   
+  </nav>
+</div>
+</tr>
+	<script>
+	function openDate(evt, Name) {
+  var i, tabcontent, tablinks;
+
+
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+
+  document.getElementById(Name).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
+</body>
+</html>
